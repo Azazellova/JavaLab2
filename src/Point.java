@@ -8,10 +8,10 @@ public class Point {
 //        this.y = 0;
 //    }
 //
-    public Point(Point point) {
-        this.x = point.x;
-        this.y = point.y;
-    }
+//    public Point(Point point) {
+//        this.x = point.x;
+//        this.y = point.y;
+//    }
 
     public Point(double x, double y) {
         if (Double.isNaN(x) || Double.isNaN(y)) {

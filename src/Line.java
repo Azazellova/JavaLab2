@@ -9,8 +9,8 @@ public class Line {
     }
 
     public Line(Line line) {
-        this.startPoint = new Point(line.startPoint);
-        this.endPoint = new Point (line.endPoint);
+        this.startPoint = line.startPoint;
+        this.endPoint = line.endPoint;
     }
 
     public Line(Point startPoint, Point endPoint) {

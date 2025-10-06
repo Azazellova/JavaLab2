@@ -45,8 +45,12 @@ public class Student {
     public String toString() {
         String array = "";
         for (int mark : marks) {
-          array += mark + " ";
+            if (array == "") {
+                array += mark;
+            } else {
+                array += " " + mark;
+            }
         }
-        return name + ": " + array;
+        return name + ": [" + array + "]";
     }
 }
