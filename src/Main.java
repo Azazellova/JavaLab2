@@ -23,12 +23,23 @@ public class Main {
 
         // Задание 2
         System.out.println("\n===== Задание 2 =====");
-        Point startPoint1 = new Point(1,3);
-        Point endPoint1 = new Point(23,8);
+
+        double startX1 = Validation.inputDouble(input,"Введите координату точки начала первой линии x_1: \n> ");
+        double startY1 = Validation.inputDouble(input,"Введите координату точки начала первой линии y_1: \n> ");
+        Point startPoint1 = new Point(startX1, startY1);
+
+        double endX1 = Validation.inputDouble(input,"Введите координату точки конца первой линии x_1: \n> ");
+        double endY1 = Validation.inputDouble(input,"Введите координату точки конца первой линии y_1: \n> ");
+        Point endPoint1 = new Point(endX1,endY1);
         Line line1 = new Line(startPoint1,endPoint1);
 
-        Point startPoint2 = new Point(5,10);
-        Point endPoint2 = new Point(25,10);
+        double startX2 = Validation.inputDouble(input,"Введите координату точки начала второй линии x_2: \n> ");
+        double startY2 = Validation.inputDouble(input,"Введите координату точки начала второй линии y_2: \n> ");
+        Point startPoint2 = new Point(startX2,startY2);
+
+        double endX2 = Validation.inputDouble(input,"Введите координату точки конца второй линии x_2: \n> ");
+        double endY2 = Validation.inputDouble(input,"Введите координату точки конца второй линии y_2: \n> ");
+        Point endPoint2 = new Point(endX2,endY2);
         Line line2 = new Line(startPoint2,endPoint2);
 
         Line line3 = new Line(line1.getStartPoint(),line2.getEndPoint());
@@ -41,21 +52,21 @@ public class Main {
 
         System.out.println("\nВведите новые точки для первой линии: ");
         System.out.println("Координаты начальной точки: ");
-        double startX1 = Validation.inputDouble(input,"x = ");
-        double startY1 = Validation.inputDouble(input,"y = ");
+        startX1 = Validation.inputDouble(input,"x = ");
+        startY1 = Validation.inputDouble(input,"y = ");
 
         System.out.println("Координаты конечной точки: ");
-        double endX1 = Validation.inputDouble(input,"x = ");
-        double endY1 = Validation.inputDouble(input,"y = ");
+        endX1 = Validation.inputDouble(input,"x = ");
+        endY1 = Validation.inputDouble(input,"y = ");
 
         System.out.println("\nВведите новые точки для второй линии: ");
         System.out.println("Координаты начальной точки: ");
-        double startX2 = Validation.inputDouble(input,"x = ");
-        double startY2 = Validation.inputDouble(input,"y = ");
+        startX2 = Validation.inputDouble(input,"x = ");
+        startY2 = Validation.inputDouble(input,"y = ");
 
         System.out.println("Координаты конечной точки: ");
-        double endX2 = Validation.inputDouble(input,"x = ");
-        double endY2 = Validation.inputDouble(input,"y = ");
+        endX2 = Validation.inputDouble(input,"x = ");
+        endY2 = Validation.inputDouble(input,"y = ");
 
         startPoint1.setCoordinates(startX1,startY1);
         endPoint1.setCoordinates(endX1,endY1);
@@ -91,13 +102,23 @@ public class Main {
         System.out.println(student1);
         System.out.println(student2);
 
-        student1.changeMark(1,5);
-        System.out.println("Изменение оценки у Васи...");
+        System.out.println("Измените отметку Пети:");
+        int n;
+        n = Validation.inputInteger(input,"Напишите номер оценки для изменения:\n> ");
+
+        while (n <= 0 || n > student1.getMarks().length) {
+            System.out.println("Ошибка ввода. Повторите попытку...");
+            n = Validation.inputInteger(input,"Напишите номер оценки для изменения:\n> ");
+        };
+        int mark = Validation.inputMark(input, "Напишите отметку для изменения: \n> ");
+        student1.changeMark(n, mark);
+        System.out.println("Изменение оценки у Пети...");
 
         System.out.println("\nОценки после изменения:");
         System.out.println(student1);
         System.out.println(student2);
 
+        System.out.println("Создаем Андрея на основе оценок Васи...");
         Student student3 = new Student("Андрей", student1.getMarks().clone());
         System.out.println("Поэтапно введите новые оценки Васи: ");
 
@@ -115,9 +136,15 @@ public class Main {
         // Задание 4.1
         System.out.println("\n===== Задание 4.1 =====");
 
-        point1 = new Point(3, 5);
-        point2 = new Point(25, 6);
-        point3 = new Point(7, 8);
+        x1 = Validation.inputDouble(input,"Введите координату точки x_1: \n> ");
+        y1 = Validation.inputDouble(input,"Введите координату точки y_1: \n> ");
+        x2 = Validation.inputDouble(input,"Введите координату точки x_2: \n> ");
+        y2 = Validation.inputDouble(input,"Введите координату точки y_2: \n> ");
+        x3 = Validation.inputDouble(input,"Введите координату точки x_3: \n> ");
+        y3 = Validation.inputDouble(input,"Введите координату точки y_3: \n> ");
+        point1 = new Point(x1, y1);
+        point2 = new Point(x2, y2);
+        point3 = new Point(x3, y3);
 
         System.out.println("Новые точки: ");
         System.out.println("Точка 1:" + point1);
@@ -127,10 +154,11 @@ public class Main {
         // Задание 4.2
         System.out.println("\n===== Задание 4.2 =====");
 
-        line1 = new Line(1,3,23,8);
+
+        line1 = new Line(startPoint1.getX(), startPoint2.getY(), endPoint1.getX(), endPoint1.getY());
         System.out.println("1. " + line1);
 
-        line2 = new Line(5,10,25,10);
+        line2 = new Line(startPoint2.getX(), startPoint2.getY(), endPoint2.getX(), endPoint2.getY());
         System.out.println("2. " + line2);
 
         line3 = new Line(line1.getStartPoint(), line2.getEndPoint());

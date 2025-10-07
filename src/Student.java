@@ -3,7 +3,7 @@ public class Student {
     private int[] marks;
 
     public Student() {
-        this.name = "Вася";
+        this.name = "";
         this.marks = new int[0];
     }
 
