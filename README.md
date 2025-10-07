@@ -2,6 +2,7 @@
 <h2>
   <p>Мазур София</p>
   <p>7 группа</p>
+  <p>1 вариант</p>
 </h2>
 
 <h2>Задание 1.1: Точка координат</h2>
@@ -95,6 +96,16 @@ Student student3 = new Student("Андрей", student1.getMarks().clone());</co
 
 <h2>Задание 4.1: Создание точки</h2><h3>Условие</h3> <p>Изменить сущность <strong>Точка</strong> так, чтобы создать объект можно было только путем указания обеих координат.</p><h3>Решение</h3> 
 <p>В классе <code>Point</code> удалены конструкторы по умолчанию и копирования. Оставлен только конструктор с параметрами <code>x</code> и <code>y</code>.</p>
+<h3>Код</h3> 
+<pre><code>public Point(double x, double y) {
+    if (Double.isNaN(x) || Double.isNaN(y)) {
+        throw new IllegalArgumentException("Координаты не могут быть NaN");
+    }
+    setX(x);
+    setY(y);
+}</code></pre>
+</p>
+
 <h3>Пример использования</h3> 
 <pre><code>Point point1 = new Point(3, 5); 
 Point point2 = new Point(25, 6); Point point3 = new Point(7, 8);</code></pre>
